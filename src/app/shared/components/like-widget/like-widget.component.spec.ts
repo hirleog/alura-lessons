@@ -1,3 +1,4 @@
+import { LikeWidgetModule } from './like-widget.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UniqueIdService } from './../../services/unique-id/unique-id.service';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
@@ -8,13 +9,12 @@ describe(LikeWidgetComponent.name, () => {
     // fixture é a instancia do meu component. Atraves dele podemos acessar 
     // atributos do components e metodos
     let fixture: ComponentFixture<LikeWidgetComponent> = null;
+    let component: LikeWidgetComponent = null;
     beforeEach(async () => {
 
         // responsavel por criar um modulo que vc quer testar
         await TestBed.configureTestingModule({
-            declarations: [LikeWidgetComponent],
-            providers: [UniqueIdService],
-            imports: [FontAwesomeModule]
+            imports: [LikeWidgetModule]
             // exports:
 
             // ele aguardaa a compilação do TS e do HTML.
@@ -22,12 +22,24 @@ describe(LikeWidgetComponent.name, () => {
 
         fixture = TestBed.createComponent(LikeWidgetComponent);
 
+        component = fixture.componentInstance;
+
     });
 
     it(`Should create component`, () => {
-        const instance = fixture.componentInstance;
+        expect(component).toBeTruthy()
+    })
 
-        expect(instance).toBeTruthy()
+    it('should auto generate ID when doesnt have property', () => {
+        fixture.detectChanges();
+        expect(component.id).toBeTruthy();
+    });
+
+    it('should auto generate ID input is present', () => {
+        const someId = 'someId';
+        component.id = someId
+        fixture.detectChanges();
+        expect(component.id).toBe(someId);
     })
 
 })
