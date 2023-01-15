@@ -6,25 +6,27 @@ import { LikeWidgetComponent } from './like-widget.component';
 
 describe(LikeWidgetComponent.name, () => {
 
-    // fixture é a instancia do meu component. Atraves dele podemos acessar 
+    // fixture cria meu component e importa o modulo dele.. Atraves dele podemos acessar 
     // atributos do components e metodos
     let fixture: ComponentFixture<LikeWidgetComponent> = null;
-    let component: LikeWidgetComponent = null;
-    beforeEach(async () => {
 
-        // responsavel por criar um modulo que vc quer testar
+    // variavel que vai usar o 'fixture' para criar uma instancia do component.
+    // Atraves dele podemos acessar atributos do components e metodos
+    let component: LikeWidgetComponent = null;
+
+    // responsavel por criar um modulo que vc quer testar
+    beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [LikeWidgetModule]
-            // exports:
-
-            // ele aguardaa a compilação do TS e do HTML.
         }).compileComponents();
 
+        // criando component e com seu modulo ja importado
         fixture = TestBed.createComponent(LikeWidgetComponent);
 
+        // instanciando todas funções do meu component atraves do fixture
         component = fixture.componentInstance;
-
     });
+
 
     it(`Should create component`, () => {
         expect(component).toBeTruthy()
@@ -41,6 +43,24 @@ describe(LikeWidgetComponent.name, () => {
         fixture.detectChanges();
         expect(component.id).toBe(someId);
     })
+    // it(`#${LikeWidgetComponent.prototype.like.name}
+    //     should trigger emission when called`, done => {
 
+    //     fixture.detectChanges();
+    //     component.liked.subscribe(() => {
+    //         expect(true).toBeTrue();
+    //         done();
+    //     })
+    //     component.like();
+    // })
+    it(`#${LikeWidgetComponent.prototype.like.name}
+        should trigger emission when called`, () => {
+
+        // é necessario passar um objeto para o 'SpyOn'
+        spyOn(component.liked, 'emit');
+        fixture.detectChanges();
+        component.like();
+        expect(component.liked.emit).toHaveBeenCalled();
+    })
 })
 
