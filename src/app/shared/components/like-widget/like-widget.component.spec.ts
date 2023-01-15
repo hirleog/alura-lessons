@@ -1,8 +1,6 @@
-import { LikeWidgetModule } from './like-widget.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { UniqueIdService } from './../../services/unique-id/unique-id.service';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LikeWidgetComponent } from './like-widget.component';
+import { LikeWidgetModule } from './like-widget.module';
 
 describe(LikeWidgetComponent.name, () => {
 
@@ -32,7 +30,7 @@ describe(LikeWidgetComponent.name, () => {
         expect(component).toBeTruthy()
     })
 
-    it('should auto generate ID when doesnt have property', () => {
+    it('should auto generate ID during ngOnInit when (@Inut) is not assigned', () => {
         fixture.detectChanges();
         expect(component.id).toBeTruthy();
     });
@@ -43,6 +41,8 @@ describe(LikeWidgetComponent.name, () => {
         fixture.detectChanges();
         expect(component.id).toBe(someId);
     })
+
+    // Ambos ITS abaixo funcionam
     // it(`#${LikeWidgetComponent.prototype.like.name}
     //     should trigger emission when called`, done => {
 
@@ -61,6 +61,8 @@ describe(LikeWidgetComponent.name, () => {
         fixture.detectChanges();
         component.like();
         expect(component.liked.emit).toHaveBeenCalled();
-    })
+    });
+
+    
 })
 
