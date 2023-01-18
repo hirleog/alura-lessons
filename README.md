@@ -1,4 +1,4 @@
- <div>
+ <div align="center">
   <h2>Unit Test Module</h2>
 </div>
 
