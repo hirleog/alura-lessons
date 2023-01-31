@@ -12,13 +12,11 @@
 
 # What we leared?
 
-* Teste serviços e componentes de maneira gradativa
-* Aprenda o papel do Jasmine e do Karma na criação de testes
-* Aprenda os fundamentos e remova vícios na criação de testes
-* Organize seus testes de maneira escalável
-* Entenda como TestBed funciona e sua importância
-* Crie lançadores customizados, inclusive scripts para servidores de CI
-* Gere métricas de cobertura e tenha confiança em seus testes
+* Aprenda como utilizar a composição para criar componentes reutilizáveis e melhorar sua produtividade.
+* Entenda como realizar a operação de upload de fotos no seu front-end.
+* Otimize o seu site utilizando serviços do tipo Resolver.
+* Controle o fluxo de navegação do seu usuário com guarda de rotas.
+* Aprenda a manipular as requisições da sua aplicação criando serviços do tipo Interceptor.
 
 ## Development server
 
