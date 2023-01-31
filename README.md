@@ -5,18 +5,20 @@
 <div>
   <div align="center">
      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg" width="100px"/>
-    <img src="https://user-images.githubusercontent.com/87393381/212582105-607ebcb7-d78e-4b99-82c6-d6e36a0f554e.png" width="100px"/>
+    <img src="https://www.alura.com.br/assets/api/cursos/angular-testes-automatizados-jasmin-karma.svg" width="100px"/>
   </div>
 </div>
 
 
 # What we leared?
 
-* Aprenda como utilizar a composição para criar componentes reutilizáveis e melhorar sua produtividade.
-* Entenda como realizar a operação de upload de fotos no seu front-end.
-* Otimize o seu site utilizando serviços do tipo Resolver.
-* Controle o fluxo de navegação do seu usuário com guarda de rotas.
-* Aprenda a manipular as requisições da sua aplicação criando serviços do tipo Interceptor.
+* Teste serviços e componentes de maneira gradativa
+* Aprenda o papel do Jasmine e do Karma na criação de testes
+* Aprenda os fundamentos e remova vícios na criação de testes
+* Organize seus testes de maneira escalável
+* Entenda como TestBed funciona e sua importância
+* Crie lançadores customizados, inclusive scripts para servidores de CI
+* Gere métricas de cobertura e tenha confiança em seus testes
 
 ## Development server
 
