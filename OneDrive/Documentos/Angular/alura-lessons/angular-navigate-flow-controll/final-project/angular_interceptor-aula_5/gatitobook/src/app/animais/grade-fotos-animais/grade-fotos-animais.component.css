@@ -1,0 +1,16 @@
+/* .btn-align {
+  width: 100%;
+  height: auto;
+} */
+.align-div {
+  display: flex;
+}
+
+.align-div textarea {
+  border-radius: 3px;
+}
+
+.like-btn-change {
+  color: red;
+
+}

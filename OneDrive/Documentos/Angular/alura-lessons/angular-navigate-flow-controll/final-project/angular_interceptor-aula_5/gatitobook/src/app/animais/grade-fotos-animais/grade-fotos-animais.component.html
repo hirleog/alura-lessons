@@ -1,0 +1,35 @@
+<p class="text-center text-muted" *ngIf="!animais.length">
+  Desculpe não há animais
+</p>
+
+<div class="row">
+  <div *ngFor="let animal of animais" class="col-4">
+    <app-cartao>
+      <a [routerLink]="['/animais', animal.id]">
+        <app-animal
+          [url]="animal.url"
+          [descricao]="animal.description"
+        ></app-animal>
+        <i aria-hidden="true" class="fa fa-heart-o fa-1x mr-2 ml-1">{{
+          animal.likes
+        }}</i>
+        <i aria-hidden="true" class="fa fa-comment-o fa-1x mr-2 ml-2">
+          {{ animal.comments }}
+        </i>
+      </a>
+    </app-cartao>
+    <!-- <div class="align-div ml-1 mb-2">
+      <textarea
+        name="commentary"
+        id="commentary"
+        width="100%"
+        rows="2"
+        cols="44"
+        placeholder="Escreva um comentario"
+        textarea
+        style="resize: none"
+      ></textarea>
+      <button class="btn-align btn btn-primary ml-2">Enviar</button>
+    </div> -->
+  </div>
+</div>
