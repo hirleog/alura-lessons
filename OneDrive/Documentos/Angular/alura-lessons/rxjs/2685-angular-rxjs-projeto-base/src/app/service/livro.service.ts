@@ -1,3 +1,4 @@
+import { LivrosResultado } from './../models/interfaces';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpClientModule, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -14,9 +15,9 @@ export class LivroService {
   ) { }
 
   // serviço para buscar livros na barra de busca
-  public bucar(valorDigitado: string): Observable<any> {
+  public bucar(valorDigitado: string): Observable<LivrosResultado> {
     const params = new HttpParams().append('q', valorDigitado)
-    return this.http.get(this.apiUrl, { params })
+    return this.http.get<LivrosResultado>(this.apiUrl, { params })
   }
 
 }
