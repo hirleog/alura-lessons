@@ -15,9 +15,25 @@ export class ListaLivrosComponent {
     private livroService: LivroService,
   ) { }
 
+  // modo antigo do subscribe (RXJS V7)
+  // buscarLivros() {
+  //   this.livroService.bucar(this.campoBusca)
+  //   .subscribe((retornoApi) => console.log('lalalal', retornoApi))
+  // }
+
+  // Novo metodo (RXJS V8)
   buscarLivros() {
     this.livroService.bucar(this.campoBusca)
-    .subscribe((retornoApi) => console.log('lalalal', retornoApi))
+    .subscribe({
+      next: retornoApi => {
+        console.log('lalalal', retornoApi)
+      },
+      error: erro => {
+        // console.log('bebebe', erro)
+        alert('Ocorreu um erro, Tente novamente')
+    },
+
+    })
   }
 }
 
