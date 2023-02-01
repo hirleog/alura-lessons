@@ -1,15 +1,17 @@
 import { LivroService } from './../../service/livro.service';
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-lista-livros',
   templateUrl: './lista-livros.component.html',
   styleUrls: ['./lista-livros.component.css']
 })
-export class ListaLivrosComponent {
+export class ListaLivrosComponent implements OnDestroy {
 
   listaLivros: [];
   campoBusca: string = '';
+  subscription: Subscription;
 
   constructor(
     private livroService: LivroService,
@@ -23,7 +25,7 @@ export class ListaLivrosComponent {
 
   // Novo metodo (RXJS V8)
   buscarLivros() {
-    this.livroService.bucar(this.campoBusca)
+    this.subscription = this.livroService.bucar(this.campoBusca)
     .subscribe({
       next: retornoApi => {
         console.log('lalalal', retornoApi)
@@ -34,6 +36,10 @@ export class ListaLivrosComponent {
     },
 
     })
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }
 
